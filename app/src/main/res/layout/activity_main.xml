@@ -22,7 +22,6 @@
         android:onClick="numero"/>
 
     <TextView
-        android:text="logs"
         android:layout_width="wrap_content"
         android:layout_height="159dp"
         android:id="@+id/logs"
@@ -37,7 +36,7 @@
         android:id="@+id/mul"
         android:layout_below="@+id/div"
         android:layout_alignStart="@+id/div"
-        android:onClick="numero (MainActivity)"/>
+        android:onClick="numero"/>
 
     <Button
         android:text="-"
@@ -46,7 +45,7 @@
         android:id="@+id/res"
         android:layout_below="@+id/mul"
         android:layout_alignStart="@+id/mul"
-        android:onClick="numero (MainActivity)"/>
+        android:onClick="numero"/>
 
     <Button
         android:text="+"
@@ -56,7 +55,7 @@
         android:layout_below="@+id/res"
         android:layout_alignStart="@+id/res"
         tools:text="+"
-        android:onClick="numero (MainActivity)"/>
+        android:onClick="numero"/>
 
     <Button
         android:text="4"
@@ -146,7 +145,7 @@
         android:layout_toEndOf="@+id/num2"
         android:id="@+id/igual"
         tools:text="="
-        android:onClick="igual (MainActivity)"/>
+        android:onClick="numero"/>
 
     <Button
         android:text="/"
@@ -157,7 +156,7 @@
         android:layout_alignBaseline="@+id/num9"
         android:layout_alignBottom="@+id/num9"
         android:layout_alignParentEnd="true"
-        android:onClick="numero (MainActivity)"/>
+        android:onClick="numero"/>
 
     <Button
         android:text="5"

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 o = operacion(bt);
                 aux = result.getText();
+                logs.setText("Asignando variable a (primer número)");
                 a = Integer.parseInt(aux.toString());
                 result.setText(buttonText);
             }
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             if (b == null){
                 result.setText(buttonText);
                 aux2 = buttonText;
+                logs.setText("Asignando variable b (segundo número)");
                 b = Integer.parseInt(aux2.toString());
             }else{
                 if (!buttonText.equals("+") && !buttonText.equals("-") && !buttonText.equals("*") && !buttonText.equals("/") && !buttonText.equals("=")) {
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         if(buttonText.equals("=")){
             ejecutar(o, a, b);
             try {
+                logs.setText("Haciendo POST");
                 postData();
             }catch(IOException ex) {
             }
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         Button bt = (Button) v;
         String buttonText = bt.getText().toString();
         result.setText(buttonText);
+        logs.setText("Asignando variable o (operación)");
         if (buttonText.equals("+")) {
             o = "sum";
         }
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         if (buttonText.equals("/")) {
             o = "div";
         }
-        //Faltan logs
+        result.setText(buttonText);
         return o;
     }
 
