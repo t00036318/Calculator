@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
             if (!buttonText.equals("+") && !buttonText.equals("-") && !buttonText.equals("*") && !buttonText.equals("/") && !buttonText.equals("=")){
                 result.setText(result.getText() + buttonText);
             }else{
-                o = operacion(bt);
                 aux = result.getText();
+                o = operacion(bt);
                 logs.setText("Asignando variable a (primer número)");
                 a = Integer.parseInt(aux.toString());
                 result.setText(buttonText);
@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         if (buttonText.equals("/")) {
             o = "div";
         }
-        result.setText(buttonText);
         return o;
     }
 
