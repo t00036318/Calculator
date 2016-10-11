@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,17 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="van.calculator.MainActivity">
 
-    <Button
-        android:text="7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/num7"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/result"
-        android:layout_alignParentStart="true"
-        tools:text="7"
-        android:onClick="numero"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="159dp"
@@ -28,34 +18,6 @@
         android:layout_weight="0.81"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mul"
-        android:layout_below="@+id/div"
-        android:layout_alignStart="@+id/div"
-        android:onClick="numero"/>
-
-    <Button
-        android:text="-"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/res"
-        android:layout_below="@+id/mul"
-        android:layout_alignStart="@+id/mul"
-        android:onClick="numero"/>
-
-    <Button
-        android:text="+"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sum"
-        android:layout_below="@+id/res"
-        android:layout_alignStart="@+id/res"
-        tools:text="+"
-        android:onClick="numero"/>
 
     <Button
         android:text="4"
@@ -68,27 +30,6 @@
         android:onClick="numero"/>
 
     <Button
-        android:text="9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/num9"
-        android:layout_alignTop="@+id/num8"
-        android:layout_toEndOf="@+id/num8"
-        tools:text="9"
-        android:onClick="numero"/>
-
-    <Button
-        android:text="8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/num8"
-        android:layout_alignBaseline="@+id/num7"
-        android:layout_alignBottom="@+id/num7"
-        android:layout_toEndOf="@+id/num7"
-        tools:text="8"
-        android:onClick="numero"/>
-
-    <Button
         android:text="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,16 +37,6 @@
         android:layout_alignParentStart="true"
         android:id="@+id/num1"
         tools:text="1"
-        android:onClick="numero"/>
-
-    <Button
-        android:text="6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/div"
-        android:layout_toEndOf="@+id/num8"
-        android:id="@+id/num6"
-        tools:text="6"
         android:onClick="numero"/>
 
     <Button
@@ -128,47 +59,6 @@
         tools:text="0"
         android:onClick="numero"/>
 
-    <Button
-        android:text="%"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/num0"
-        android:layout_toEndOf="@+id/num1"
-        android:id="@+id/porcentaje"
-        tools:text="%" />
-
-    <Button
-        android:text="="
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sum"
-        android:layout_toEndOf="@+id/num2"
-        android:id="@+id/igual"
-        tools:text="="
-        android:onClick="numero"/>
-
-    <Button
-        android:text="/"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/div"
-        tools:text="/"
-        android:layout_alignBaseline="@+id/num9"
-        android:layout_alignBottom="@+id/num9"
-        android:layout_alignParentEnd="true"
-        android:onClick="numero"/>
-
-    <Button
-        android:text="5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/num5"
-        tools:text="5"
-        android:layout_alignBaseline="@+id/num6"
-        android:layout_alignBottom="@+id/num6"
-        android:layout_toEndOf="@+id/num7"
-        android:onClick="numero"/>
-
     <TextView
         android:text=""
         android:layout_width="wrap_content"
@@ -179,14 +69,134 @@
         android:layout_alignParentEnd="true" />
 
     <Button
+        android:text="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num5"
+        tools:text="5"
+        android:onClick="numero"
+        android:layout_alignBaseline="@+id/num4"
+        android:layout_alignBottom="@+id/num4"
+        android:layout_toEndOf="@+id/num4" />
+
+    <Button
+        android:text="7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num7"
+        android:layout_marginTop="15dp"
+        tools:text="7"
+        android:onClick="numero"
+        android:layout_below="@+id/result"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/num5"
+        android:elevation="0dp" />
+
+    <Button
+        android:text="8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num8"
+        tools:text="8"
+        android:onClick="numero"
+        android:layout_alignBaseline="@+id/num7"
+        android:layout_alignBottom="@+id/num7"
+        android:layout_toEndOf="@+id/num4" />
+
+    <Button
         android:text="3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/num3"
         tools:text="3"
         android:onClick="numero"
-        android:layout_alignBaseline="@+id/num2"
-        android:layout_alignBottom="@+id/num2"
+        android:layout_below="@+id/num5"
+        android:layout_toEndOf="@+id/num2" />
+
+    <Button
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sum"
+        tools:text="+"
+        android:onClick="operacion"
+        android:layout_alignBaseline="@+id/igual"
+        android:layout_alignBottom="@+id/igual"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/num3" />
+
+    <Button
+        android:text="9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num9"
+        tools:text="9"
+        android:onClick="numero"
+        android:layout_alignBaseline="@+id/div"
+        android:layout_alignBottom="@+id/div"
+        android:layout_toEndOf="@+id/num5" />
+
+    <Button
+        android:text="6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num6"
+        tools:text="6"
+        android:onClick="numero"
+        android:layout_alignBaseline="@+id/num5"
+        android:layout_alignBottom="@+id/num5"
+        android:layout_toEndOf="@+id/num5" />
+
+    <Button
+        android:text="*"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mul"
+        android:onClick="operacion"
+        android:layout_below="@+id/div"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/num3" />
+
+    <Button
+        android:text="/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/div"
+        tools:text="/"
+        android:onClick="operacion"
+        android:layout_above="@+id/num6"
+        android:layout_toEndOf="@+id/num9" />
+
+    <Button
+        android:text="-"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/res"
+        android:onClick="operacion"
+        android:layout_alignBaseline="@+id/num3"
+        android:layout_alignBottom="@+id/num3"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/num3" />
+
+    <Button
+        android:text="C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/borrar"
+        tools:text="C"
+        android:onClick="borrar"
+        android:layout_below="@+id/num2"
+        android:layout_toEndOf="@+id/num1" />
+
+    <Button
+        android:text="="
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/igual"
+        tools:text="="
+        android:onClick="ejecutar"
+        android:layout_alignBaseline="@+id/borrar"
+        android:layout_alignBottom="@+id/borrar"
         android:layout_toEndOf="@+id/num2" />
 
 

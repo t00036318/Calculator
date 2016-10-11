@@ -6,30 +6,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Integer a = null;
-    Integer b = null;
-    String o;
-    float res;
+    String a = "";
+    String b = "default";
+    String o = "default";
     TextView result, logs;
 
     private static final String URL_STRING = "http://162.243.64.94/dm.php";
-    private static final String TAG = "Calculator";
 
 
     @Override
@@ -40,101 +35,96 @@ public class MainActivity extends AppCompatActivity {
         logs = (TextView) findViewById(R.id.logs);
     }
 
+    public void borrar(View v){
+        a = "";
+        b = "default";
+        o = "default";
+        logs.setText("");
+        result.setText("");
+    }
 
     public void numero(View v){
         Button bt = (Button) v;
         String buttonText = bt.getText().toString();
-        CharSequence aux, aux2;
-        if (!result.getText().equals("+") && !result.getText().equals("-") && !result.getText().equals("*") && !result.getText().equals("/") && !result.getText().equals("=")){
-            if (!buttonText.equals("+") && !buttonText.equals("-") && !buttonText.equals("*") && !buttonText.equals("/") && !buttonText.equals("=")){
-                result.setText(result.getText() + buttonText);
-            }else{
-                aux = result.getText();
-                o = operacion(bt);
-                logs.setText("Asignando variable a (primer número)");
-                a = Integer.parseInt(aux.toString());
-                result.setText(buttonText);
-            }
-        }else{
-            if (b == null){
-                result.setText(buttonText);
-                aux2 = buttonText;
-                logs.setText("Asignando variable b (segundo número)");
-                b = Integer.parseInt(aux2.toString());
-            }else{
-                if (!buttonText.equals("+") && !buttonText.equals("-") && !buttonText.equals("*") && !buttonText.equals("/") && !buttonText.equals("=")) {
-                    result.setText(result.getText() + buttonText);
-                }else{
-                aux2 = result.getText();
-                b = Integer.parseInt(aux2.toString());
-                result.setText(buttonText);
-            }
-            }
+        if(a.equals("default")){
+            logs.setText("");
+            result.setText("");
         }
-        if(buttonText.equals("=")){
-            ejecutar(o, a, b);
-            try {
-                logs.setText("Haciendo POST");
-                postData();
-            }catch(IOException ex) {
-            }
-        }
-
+        if (o.equals("default")){
+            result.setText(result.getText() + buttonText);
+            a = result.getText().toString();
+            } else
+                if(!o.equals("default")){
+                    if (b.equals("default")){
+                        result.setText("");
+                        result.setText(buttonText);
+                    }
+                    else {
+                        result.setText(result.getText() + buttonText);
+                    }
+                    b = result.getText().toString();
+                }
     }
 
 
-    public String operacion(View v) {
+    public void operacion(View v) {
+
+        logs.setText(logs.getText() + "Variable a (primer número) asignada");
+
         Button bt = (Button) v;
         String buttonText = bt.getText().toString();
         result.setText(buttonText);
-        logs.setText("Asignando variable o (operación)");
+
+        logs.setText(logs.getText() + "\nAsignando variable o (operación)");
+
+
         if (buttonText.equals("+")) {
             o = "sum";
+        } else if (buttonText.equals("-")) {
+                o = "res";
+            } else if (buttonText.equals("*")) {
+                o = "mul";
+            } else if (buttonText.equals("/")) {
+                    o = "div";
         }
-        if (buttonText.equals("-")) {
-            o = "res";
-        }
-        if (buttonText.equals("*")) {
-            o = "mul";
-        }
-        if (buttonText.equals("/")) {
-            o = "div";
-        }
-        return o;
     }
 
-    public void ejecutar(String o, int a, int b){
-        if (o.equals("sum")) {
-            res = a + b;
-        }
-        if (o.equals("res")) {
-            res = a - b;
-        }
-        if (o.equals("mul")) {
-            res = a * b;
-        }
-        if (o.equals("div") && b != 0) {
-            res = a / b;
-        } else {
-            result.setText("Indefinido");
-        }
+    public void ejecutar (View v){
+        logs.setText(logs.getText() + "\nVariable b (segundo número) asignada");
 
-        result.setText(String.valueOf(res));
+        logs.setText(logs.getText() + "\nHaciendo petición al servidor");
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRING,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        result.setText(response);
+                        a = "default";
+                        b = "default";
+                        o = "default";
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        logs.setText(logs.getText() + "\nFallo en la conexión");
+                    }
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("o", o);
+                params.put("a", a);
+                params.put("b", b);
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+
     }
 
-
-    public void postData() throws IOException, ClientProtocolException {
-
-        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("o", o));
-        nameValuePairs.add(new BasicNameValuePair("a", a.toString()));
-        nameValuePairs.add(new BasicNameValuePair("b", b.toString()));
-
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(URL_STRING);
-        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-        HttpResponse response = httpclient.execute(httppost);
-        result.setText(response.toString());
-    }
 }
