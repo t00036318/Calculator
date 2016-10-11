@@ -92,12 +92,13 @@ public class MainActivity extends AppCompatActivity {
     public void ejecutar (View v){
         logs.setText(logs.getText() + "\nVariable b (segundo número) asignada");
 
-        logs.setText(logs.getText() + "\nHaciendo petición al servidor");
+        logs.setText(logs.getText() + "\nHaciendo petición al servidor...");
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRING,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        logs.setText(logs.getText() + "\nRespuesta del servidor en pantalla");
                         result.setText(response);
                         a = "default";
                         b = "default";
@@ -107,7 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        logs.setText(logs.getText() + "\nFallo en la conexión");
+                        logs.setText(logs.getText() + "\nFallo en la conexión o división entre 0");
+                        a = "default";
+                        b = "default";
+                        o = "default";
                     }
                 }){
             @Override
