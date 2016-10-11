@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        logs.setText(logs.getText() + "\nFallo en la conexión o división entre 0");
+                        logs.setText(logs.getText() + "\nError: conexión, división entre 0 o parámetros faltantes");
                         a = "default";
                         b = "default";
                         o = "default";

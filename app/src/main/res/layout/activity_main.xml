@@ -76,7 +76,8 @@
         android:layout_alignParentEnd="true"
         android:textAlignment="viewEnd"
         android:textSize="36sp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/border"/>
 
     <Button
         android:text="5"
