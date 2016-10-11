@@ -1,2 +1,2 @@
-# Calculator
-![Alt text](/Screenshot.jpg?raw=true "NetworkCalcApp")
+# NetworkCalcApp
+![Alt text](Screenshot.jpg?raw=true "NetworkCalcApp")
