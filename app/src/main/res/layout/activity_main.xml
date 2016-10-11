@@ -17,7 +17,10 @@
         android:id="@+id/logs"
         android:layout_weight="0.81"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="serif-monospace"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <Button
         android:text="4"
@@ -27,7 +30,8 @@
         android:layout_below="@+id/num8"
         android:layout_alignParentStart="true"
         tools:text="4"
-        android:onClick="numero"/>
+        android:onClick="numero"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="1"
@@ -37,7 +41,8 @@
         android:layout_alignParentStart="true"
         android:id="@+id/num1"
         tools:text="1"
-        android:onClick="numero"/>
+        android:onClick="numero"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="2"
@@ -47,7 +52,8 @@
         android:layout_toStartOf="@+id/num6"
         android:id="@+id/num2"
         tools:text="2"
-        android:onClick="numero"/>
+        android:onClick="numero"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="0"
@@ -57,7 +63,8 @@
         android:layout_alignParentStart="true"
         android:id="@+id/num0"
         tools:text="0"
-        android:onClick="numero"/>
+        android:onClick="numero"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
         android:text=""
@@ -66,7 +73,10 @@
         android:id="@+id/result"
         android:layout_below="@+id/logs"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textAlignment="viewEnd"
+        android:textSize="36sp"
+        android:textColor="@color/colorPrimary" />
 
     <Button
         android:text="5"
@@ -77,7 +87,8 @@
         android:onClick="numero"
         android:layout_alignBaseline="@+id/num4"
         android:layout_alignBottom="@+id/num4"
-        android:layout_toEndOf="@+id/num4" />
+        android:layout_toEndOf="@+id/num4"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="7"
@@ -90,7 +101,8 @@
         android:layout_below="@+id/result"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/num5"
-        android:elevation="0dp" />
+        android:elevation="0dp"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="8"
@@ -101,7 +113,8 @@
         android:onClick="numero"
         android:layout_alignBaseline="@+id/num7"
         android:layout_alignBottom="@+id/num7"
-        android:layout_toEndOf="@+id/num4" />
+        android:layout_toEndOf="@+id/num4"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="3"
@@ -111,7 +124,8 @@
         tools:text="3"
         android:onClick="numero"
         android:layout_below="@+id/num5"
-        android:layout_toEndOf="@+id/num2" />
+        android:layout_toEndOf="@+id/num2"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="+"
@@ -123,7 +137,8 @@
         android:layout_alignBaseline="@+id/igual"
         android:layout_alignBottom="@+id/igual"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/num3" />
+        android:layout_toEndOf="@+id/num3"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="9"
@@ -134,7 +149,8 @@
         android:onClick="numero"
         android:layout_alignBaseline="@+id/div"
         android:layout_alignBottom="@+id/div"
-        android:layout_toEndOf="@+id/num5" />
+        android:layout_toEndOf="@+id/num5"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="6"
@@ -145,7 +161,8 @@
         android:onClick="numero"
         android:layout_alignBaseline="@+id/num5"
         android:layout_alignBottom="@+id/num5"
-        android:layout_toEndOf="@+id/num5" />
+        android:layout_toEndOf="@+id/num5"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="*"
@@ -155,7 +172,8 @@
         android:onClick="operacion"
         android:layout_below="@+id/div"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/num3" />
+        android:layout_toEndOf="@+id/num3"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="/"
@@ -165,7 +183,8 @@
         tools:text="/"
         android:onClick="operacion"
         android:layout_above="@+id/num6"
-        android:layout_toEndOf="@+id/num9" />
+        android:layout_toEndOf="@+id/num9"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="-"
@@ -176,7 +195,8 @@
         android:layout_alignBaseline="@+id/num3"
         android:layout_alignBottom="@+id/num3"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/num3" />
+        android:layout_toEndOf="@+id/num3"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="C"
@@ -186,7 +206,8 @@
         tools:text="C"
         android:onClick="borrar"
         android:layout_below="@+id/num2"
-        android:layout_toEndOf="@+id/num1" />
+        android:layout_toEndOf="@+id/num1"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
         android:text="="
@@ -197,7 +218,8 @@
         android:onClick="ejecutar"
         android:layout_alignBaseline="@+id/borrar"
         android:layout_alignBottom="@+id/borrar"
-        android:layout_toEndOf="@+id/num2" />
+        android:layout_toEndOf="@+id/num2"
+        android:textColor="@color/colorPrimaryDark"/>
 
 
 </RelativeLayout>
